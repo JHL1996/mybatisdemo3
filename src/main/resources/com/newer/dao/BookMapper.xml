@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.newer.dao.BookMapper">
+
+    <resultMap id="book1" type="com.newer.pojo.Book">
+        <id property="bookId" column="bookid"/>
+        <result property="title" column="title"/>
+        <result property="price" column="price"/>
+        <association property="author" javaType="com.newer.pojo.Author">
+            <id property="auid" column="auid"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <!--<select id="findAll2" resultMap="book1">
+        SELECT bookid,title,price,b.auid,name FROM
+         bookinfo b JOIN author a ON b.auid=a.auid
+
+    </select>-->
+</mapper>  
